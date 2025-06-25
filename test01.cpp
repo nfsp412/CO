@@ -3,9 +3,11 @@
 
 int main()
 {
-    int i = -3;
-    unsigned int j = 2;
-    printf("%d\n", i-j);//-5
+    char a[] = "world";
+    printf("hello,%s", a);
+    // int i = -3;
+    // unsigned int j = 2;
+    // printf("%d\n", i-j);//-5
 
     // // C语言定点整数,强制类型转换
     // short x = -4321;
@@ -44,7 +46,7 @@ int main()
     // }else{
     //     printf("jisaunjijiaoyu\n");
     // }
-    
+
     // int xa=127;
     // short ya=-9;
     // int za;
