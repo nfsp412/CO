@@ -571,3 +571,55 @@ IR和指令字长相关,32位
 ## 5.2.4
 
 1A !2D 3C 4B 5D !6B !7B !8B !9A !10C 11C 12A !13A !14A/C !15C
+
+## 5.3.5
+
+1C 2D 3C 4D 5C !6A/B !7C !8D !9D !10A 11C !12D/B
+
+大题
+
+总结:
+1 可以不写Bus
+2 (PC)+1->PC,要写上
+3 注意看题目是否要求写时序序号了,别忘记
+4 指令译码,这个写上
+
+2
+ADD B,C
+取指周期
+1 (PC)->MAR,PCout有效,MARin有效
+2 M(MAR)->MDR,MARout有效,MDRinE有效,CU发出读信号
+3 (PC)+1->PC
+4 (MDR)->IR,MDRout有效,IRin有效
+执行周期
+1 (B)->Y,Bout有效,Yin有效
+2 (Y)+(C)->Z,Cout有效,ALUin有效,CU发出加法信号
+3 (Z)->B,Bin有效,Zout有效
+
+SUB ACC,H
+取指周期
+1 (PC)->MAR,PCout有效,MARin有效
+2 M(MAR)->MDR,MARout有效,MDRinE有效,CU发出读信号
+3 (PC)+1->PC
+4 (MDR)->IR,MDRout有效,IRin有效
+执行周期
+1 (ACC)->Y,ACCout有效,Yin有效
+2 (Y)-(H)->Z,Hout有效,ALUin有效,CU发出减法信号
+3 (Z)->ACC,Zout有效,ACCin有效
+
+3
+ADD (R0),R1
+取指周期
+1 (PC)->MAR,PCout有效,MARin有效
+2 M(MAR)->MDR,MARout有效,MDRinE有效,CU发出读信号
+3 (PC)+1->PC
+4 (MDR)->IR,MDRout有效,IRin有效
+5 指令译码
+间址周期
+1 (R0)->MAR,R0out有效,MARin有效
+2 M(MAR)->MDR,MARout有效,MDRinE有效,CU发出读信号
+3 (MDR)->Y,MDRout有效,Yin有效
+执行周期
+1 (Y)+(R1)->Z,R1out有效,ALUin有效,CU发出加法信号
+2 (Z)->MDR,Zout有效,MDRin有效
+3 (MDR)->M(MAR),MDRoutE有效,MARout有效,CU发出写信号
