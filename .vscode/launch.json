@@ -20,7 +20,8 @@
             "request": "launch",
             "program": "${command:cmake.launchTargetPath}",
             "cwd": "${workspaceFolder}/build",
-            "MIMode": "lldb"
+            "MIMode": "lldb",
+            "externalConsole": true
         }
     ]
 }
